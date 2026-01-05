@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { UserData, FitnessGoal, ExperienceLevel } from '../types';
+import { UserData, FitnessGoal, ExperienceLevel } from '../types.ts';
 
 interface WorkoutFormProps {
   onSubmit: (data: UserData) => void;

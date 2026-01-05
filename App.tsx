@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import WorkoutForm from './components/WorkoutForm';
-import WorkoutChart from './components/WorkoutChart';
-import { UserData, WorkoutPlan } from './types';
-import { generateWorkoutPlan } from './services/geminiService';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import WorkoutForm from './components/WorkoutForm.tsx';
+import WorkoutChart from './components/WorkoutChart.tsx';
+import { UserData, WorkoutPlan } from './types.ts';
+import { generateWorkoutPlan } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -18,13 +18,12 @@ const App: React.FC = () => {
     try {
       const plan = await generateWorkoutPlan(userData);
       setWorkoutPlan(plan);
-      // Smooth scroll to results
       setTimeout(() => {
         document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } catch (err) {
       console.error(err);
-      setError('An error occurred while generating your plan. Please try again.');
+      setError('An error occurred while generating your plan. Please ensure your API key is configured correctly.');
     } finally {
       setLoading(false);
     }

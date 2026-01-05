@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { WorkoutPlan } from '../types';
+import { WorkoutPlan } from '../types.ts';
 
 interface WorkoutChartProps {
   plan: WorkoutPlan;
@@ -75,7 +75,7 @@ const WorkoutChart: React.FC<WorkoutChartProps> = ({ plan }) => {
         <div>
           <h4 className="font-bold text-amber-800">Safety First</h4>
           <p className="text-amber-700 text-sm mt-1">
-            This plan is AI-generated based on your inputs. Always consult with a qualified medical professional or certified fitness trainer before starting a new exercise program. If you feel sharp pain, dizziness, or shortness of breath, stop immediately and seek medical advice.
+            This plan is AI-generated based on your inputs. Always consult with a qualified medical professional or certified fitness trainer before starting a new exercise program.
           </p>
         </div>
       </div>

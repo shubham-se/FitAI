@@ -1,12 +1,12 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { UserData, WorkoutPlan } from "../types";
+import { UserData, WorkoutPlan } from "../types.ts";
 
 export async function generateWorkoutPlan(userData: UserData): Promise<WorkoutPlan> {
   const apiKey = process.env.API_KEY;
   
   if (!apiKey) {
-    throw new Error("API Key is missing. Please ensure process.env.API_KEY is configured.");
+    throw new Error("API Key is missing. The application requires an API_KEY environment variable.");
   }
 
   const ai = new GoogleGenAI({ apiKey });
@@ -74,6 +74,6 @@ export async function generateWorkoutPlan(userData: UserData): Promise<WorkoutPl
     return data as WorkoutPlan;
   } catch (error) {
     console.error("Failed to parse Gemini response:", error);
-    throw new Error("Failed to generate a valid workout plan. The AI response was not in the expected format.");
+    throw new Error("Failed to generate a valid workout plan. Please try again.");
   }
 }

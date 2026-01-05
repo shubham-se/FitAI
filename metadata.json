@@ -1,0 +1,5 @@
+{
+  "name": "FitAI - Personalized Workout Planner",
+  "description": "An AI-powered fitness application that generates customized weekly gym workout charts based on individual goals, experience, and physical limitations using Gemini 3.",
+  "requestFramePermissions": []
+}
